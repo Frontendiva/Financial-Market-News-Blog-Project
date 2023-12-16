@@ -1,0 +1,52 @@
+.container {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.col-4 {
+    display: inline-block;
+    white-space: normal;
+   
+}
+
+.blog-container {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.blogCard-body{
+    margin: 30px;
+    background-color: #112B3E;
+    width: 420px;
+    
+}
+
+.blogCard-title{
+font-family: Roboto Slab;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    text-align: center;
+    margin: 0;
+    background-color: #112B3E ;
+    color: white;
+}
+
+.blogCard-img {
+    width: 420px;
+    height: 299px;
+    top: 123px;
+    left: 54px;
+    margin: 0;
+}
+.blogCard-text{
+    font-family: Roboto Slab;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 18px;
+        text-align: center;
+        background-color: #112B3E;
+        color: white;
+        margin: 0;
+}
