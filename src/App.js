@@ -1,17 +1,23 @@
 // App.js
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopBar from './components/topbar/TopBar';
 import BlogCard from './components/blogCard/BlogCard';
+import ArticleDetails from './components/articles/ArticleDetails'; // Импортируем новый компонент
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <>
-      <TopBar />
-      <BlogCard />
-      <p></p>
-    </>
+    <Router>
+      <div>
+        <TopBar />
+        <Routes>
+          <Route path="/article/:id" element={<ArticleDetails />} />
+          <Route path="/" element={<BlogCard />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

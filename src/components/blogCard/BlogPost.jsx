@@ -1,12 +1,14 @@
 // BlogPost.js
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const BlogPost = ({ title, imageUrl, expertComment }) => {
-    
+const BlogPost = ({ id, title, imageUrl, expertComment }) => {
   return (
     <div className='blogCard-body'>
-          <img className='blogCard-img' src={imageUrl} alt={title}  />
-          <h2 className='blogCard-title'>{title}</h2>
+      <NavLink to={`/article/${id}`}>
+        <img className='blogCard-img' src={imageUrl} alt={title} />
+        <h2 className='blogCard-title'>{title}</h2>
+      </NavLink>
       <p className='blogCard-text'>{expertComment}</p>
     </div>
   );

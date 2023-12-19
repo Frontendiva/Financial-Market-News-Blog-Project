@@ -1,5 +1,4 @@
-// Post.jsx
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './post.css';
 import BlogCard from '../blogCard/BlogCard';
 
@@ -9,6 +8,7 @@ const Post = () => {
   useEffect(() => {
     async function fetchPosts() {
       try {
+        // Ваш код для получения данных
         const response = await fetch('/api/posts');
 
         if (!response.ok) {
