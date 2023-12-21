@@ -1,0 +1,19 @@
+/* BlogPost.css */
+.blogCard-body {
+    border: 1px solid #ddd;
+    padding: 10px;
+    transition: transform 0.3s ease;
+    width: 420px;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blogCard-body:hover {
+    transform: scale(1.05);
+}
+
+.blogCard-img {
+    max-width: 100%;
+    height: auto;
+}

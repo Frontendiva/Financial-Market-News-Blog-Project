@@ -1,7 +1,7 @@
 // BlogPost.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import './blogPost.css'; // 
 const BlogPost = ({ id, title, imageUrl, expertComment }) => {
   return (
     <div className='blogCard-body'>

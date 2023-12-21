@@ -4,7 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import TopBar from './components/topbar/TopBar';
 import BlogCard from './components/blogCard/BlogCard';
-import ArticleDetails from './components/articles/ArticleDetails'; // Импортируем новый компонент
+import ArticleDetails from './components/articles/ArticleDetails'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
       <div>
         <TopBar />
         <Routes>
-          <Route path="/article/:id" element={<ArticleDetails />} />
-          <Route path="/" element={<BlogCard />} />
-        </Routes>
+  <Route path="/" element={<BlogCard />} />
+  <Route path="/article/:id" element={<ArticleDetails />} />
+</Routes>
       </div>
     </Router>
   );

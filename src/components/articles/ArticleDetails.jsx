@@ -1,12 +1,15 @@
 // ArticleDetails.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import CommentSection from './CommentSection';
 
 const ArticleDetails = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     async function fetchArticle() {
       try {
         const response = await fetch(`/api/posts/${id}`);
@@ -16,24 +19,34 @@ const ArticleDetails = () => {
         }
 
         const data = await response.json();
-        setArticle(data);
+
+        if (isMounted) {
+          setArticle(data);
+        }
       } catch (error) {
         console.error('Ошибка при получении данных статьи:', error.message);
       }
     }
 
     fetchArticle();
-  }, [id]);
 
-  if (!article) {
-    return <div>Loading...</div>;
-  }
+    return () => {
+      isMounted = false;
+    };
+  }, [id]);
 
   return (
     <div>
-      <h2>{article.title}</h2>
-      <img src={article.imageUrl} alt={article.title} />
-      <p>{article.expertComment}</p>
+      {article ? (
+        <div>
+          <h2>{article.title}</h2>
+          <img src={article.imageUrl} alt={article.title} />
+          <p>{article.expertComment}</p>
+          <CommentSection articleId={id} />
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
     </div>
   );
 };
