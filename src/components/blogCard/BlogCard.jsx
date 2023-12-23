@@ -11,12 +11,13 @@ const BlogCard = () => {
   return (
     <div className="container">
       <div className="row">
-        {firstTenPosts.map((data, id) => (
-  <div key={id} className="col-4">
+        {firstTenPosts.map((data, index) => (
+  <div key={index} className="col-4">
     <BlogPost
-      id={id}
+      id={data.id}
       title={data.title}
       imageUrl={data.imageUrl}
+      
     />
   </div>
 ))}
