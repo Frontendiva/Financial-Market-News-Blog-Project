@@ -1,7 +1,7 @@
 // BlogPost.js
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './blogPost.css'; // 
+import './blogPost.css';
 
 const BlogPost = ({ id, title, imageUrl, description, expertComment }) => {
   return (
@@ -11,7 +11,6 @@ const BlogPost = ({ id, title, imageUrl, description, expertComment }) => {
         <h2 className='blogCard-title'>{title}</h2>
         <p className='blogCard-text'>{description}</p>
       </NavLink>
-  
     </div>
   );
 };

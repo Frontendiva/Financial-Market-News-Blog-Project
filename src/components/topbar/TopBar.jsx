@@ -1,5 +1,5 @@
 import React from 'react'
-import './topbar.css'
+import '../TopBar/topBar.css'
 import { Link } from 'react-router-dom'
 
 export default function TopBar() {

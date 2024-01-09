@@ -1,7 +1,9 @@
 // firebase.js
-import { initializeApp } from 'firebase/app';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { getDatabase, ref, get } from 'firebase/database';
+import { initializeApp } from 'firebase/app';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDlDkViaKdcClm7Vz7qS__wOJ4JmqiUPCU",
@@ -15,19 +17,38 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth();
 
-const getArticleById = async (articleId) => {
-  const articleRef = doc(db, 'posts', articleId);
-  const articleSnapshot = await getDoc(articleRef);
+export const auth = getAuth(app);
+export const firestore = getFirestore(app);
+export const database = getDatabase(app);
+export const getArticleById = async (articleId) => {
+  try {
+    // Use Firestore to get the article data
+    const articleRef = doc(firestore, 'posts', articleId);
+    const articleSnapshot = await getDoc(articleRef);
 
-  if (articleSnapshot.exists()) {
-    return articleSnapshot.data();
-  } else {
-    console.error('Статья не найдена');
+    if (articleSnapshot.exists()) {
+      return { id: articleId, ...articleSnapshot.data() };
+    } else {
+      console.error('Статья не найдена в Firestore');
+    }
+  } catch (error) {
+    console.error('Ошибка при получении данных статьи из Firestore:', error);
+  }
+
+  try {
+    // Use Realtime Database to get the article data as a fallback
+    const articleRef = ref(database, `posts/${articleId}`);
+    const articleSnapshot = await get(articleRef);
+
+    if (articleSnapshot.exists()) {
+      return { id: articleId, ...articleSnapshot.val() };
+    } else {
+      console.error('Статья не найдена в Realtime Database');
+      return null;
+    }
+  } catch (error) {
+    console.error('Ошибка при получении данных статьи из Realtime Database:', error);
     return null;
   }
 };
-
-export { db, auth, getArticleById };

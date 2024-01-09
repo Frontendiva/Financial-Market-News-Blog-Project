@@ -1,24 +1,24 @@
 .top{
-width: 100%;
-height: 83px;
-background: #112B3E;
-display: flexbox;
-margin: 0;
-font-family: Roboto Slab;
-padding-top: 23px;
-padding-left: 25px;
-border: 1px;
-}
-.headerName{
-font-family: Roboto Slab;
-font-size: 36px;
-font-weight: 700;
-color: white;
-
-}
-.headerName-com{
+    width: 100%;
+    height: 83px;
+    background: #112B3E;
+    display: flexbox;
+    margin: 0;
     font-family: Roboto Slab;
-    font-size: 24px;
+    padding-top: 23px;
+    padding-left: 25px;
+    border: 1px;
+    }
+    .headerName{
+    font-family: Roboto Slab;
+    font-size: 36px;
     font-weight: 700;
     color: white;
-}
+    
+    }
+    .headerName-com{
+        font-family: Roboto Slab;
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+    }

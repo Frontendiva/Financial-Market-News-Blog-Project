@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import TopBar from './components/topbar/TopBar';
 import BlogCard from './components/blogCard/BlogCard';
 import ArticleDetails from './components/articles/ArticleDetails';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TopBar from './components/TopBar/TopBar';
 
 function App() {
   return (
     <Router>
       <div>
-        <TopBar />
+      <TopBar />
         <Routes>
           <Route path="/" element={<BlogCard />} />
           <Route path="/article/:id" element={<ArticleDetails />} />

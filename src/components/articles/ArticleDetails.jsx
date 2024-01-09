@@ -1,7 +1,7 @@
 // ArticleDetails.jsx
 import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { getArticleById } from '../../services/firebase';
+import { getArticleById } from '../../services/firebase'; // ← убедитесь, что путь правильный
 import '../articles/articleDetalis.css';
 
 const ArticleDetails = () => {
@@ -10,6 +10,7 @@ const ArticleDetails = () => {
 
   const fetchArticle = useCallback(async () => {
     try {
+      console.log('Получение статьи с ID:', articleId);
       const articleData = await getArticleById(articleId);
       console.log('Данные статьи:', articleData);
       setArticle(articleData);
